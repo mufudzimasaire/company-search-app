@@ -8,9 +8,8 @@ import { OfficerList } from '../models/company-officers.model';
   providedIn: 'root'
 })
 export class CompanyService {
-  private readonly apiUrl = import.meta.env.NGX_BASE_URL;
   private readonly headers = new HttpHeaders({
-    'x-api-key': import.meta.env.NGX_API_KEY
+    'x-api-key': import.meta.env['NG_APP_API_KEY']
   });
 
   constructor(private readonly http: HttpClient) {}
@@ -21,7 +20,7 @@ export class CompanyService {
    * @returns An observable of the search results
    */
   searchCompanies(query: string): Observable<CompanySearchResult> {
-    return this.http.get<CompanySearchResult>(`${this.apiUrl}/Search?Query=${query}`, { headers: this.headers });
+    return this.http.get<CompanySearchResult>(`/api/Search?Query=${query}`, { headers: this.headers });
   }
 
   /**
@@ -30,7 +29,7 @@ export class CompanyService {
    * @returns An observable of the company officers
    */
   getCompanyOfficers(companyNumber: string): Observable<OfficerList> {
-    return this.http.get<OfficerList>(`${this.apiUrl}/Officers?CompanyNumber=${companyNumber}`, { headers: this.headers });
+    return this.http.get<OfficerList>(`/api/Officers?CompanyNumber=${companyNumber}`, { headers: this.headers });
   }
 }
   

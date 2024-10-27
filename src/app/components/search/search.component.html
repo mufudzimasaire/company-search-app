@@ -1,0 +1,16 @@
+<div class="d-flex flex-column align-items-center justify-content-center" style="height: 100%;">
+  <div class="w-50">
+    <h1 class="text-center fw-light mb-4 fs-3">Company Search</h1>
+    <div class="input-group mt-3">
+      <input
+        type="search"
+        class="form-control"
+        aria-describedby="Search"
+        placeholder="Enter Company Name or Number"
+        required
+        [(ngModel)]="query"
+      >
+      <button class="btn btn-primary bg-gradient" type="button" id="Search" (click)="search()">Search</button>
+    </div>
+  </div>
+</div>

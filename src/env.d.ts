@@ -1,9 +1,6 @@
 // Define the type of the environment variables.
 declare interface Env {
   readonly NODE_ENV: string;
-  // Replace the following with your own environment variables.
-  NGX_API_KEY: string;
-  NGX_BASE_URL: string;
   [key: string]: any;
 }
 
