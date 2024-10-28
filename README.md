@@ -1,27 +1,73 @@
-# CompanySearchApp
+# Company Search App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+This is a simple Angular 17 application for searching company information, styled with Bootstrap. The app allows users to search for companies, view detailed information, and see lists of company officers.
 
-## Development server
+## Screenshots
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### 1. Search Page
+![Search Page](https://github.com/user-attachments/assets/b8ea19dd-11b3-4b51-a4fd-ff53b98a5ded)
 
-## Code scaffolding
+### 2. Search Results Page
+![Results Page](https://github.com/user-attachments/assets/23219116-10d6-4bbd-9cd0-650a426d94e2)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 3. Company Details Page
+![Company details page](https://github.com/user-attachments/assets/afda8d96-6d5e-4888-9d22-a3551b5e4041)
 
-## Build
+### 4. Company Officers Page
+![Company officers page](https://github.com/user-attachments/assets/57496453-a8ac-4405-8413-5612917c47a7)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Features
 
-## Running unit tests
+- **Search for Companies**: Enter a company name or number to search.
+- **Detailed Company Information**: View additional details for a selected company, including its address and status.
+- **Officers List**: See a list of officers associated with each company.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Getting Started
 
-## Running end-to-end tests
+### Prerequisites
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To run this application, ensure you have the following installed:
 
-## Further help
+- **Node.js** (>= 18.x)
+- **Angular CLI** (>= 17.x)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Installation
+
+1. **Clone the Repository**
+
+   ```bash
+    git clone git@github.com:mufudzimasaire/company-search-app.git
+    cd company-search-app
+   ```
+
+2. **Install Dependencies**
+   ```bash
+    npm install
+   ```
+
+3. **Set up Environment Variables**
+  Create a .env file in the root directory with the following content:
+
+   ```bash
+    NG_APP_API_KEY=your_api_key_here  
+   ```
+   Replace `your_api_key_here` with your actual API key for accessing the company data service.
+
+4. **Run the Application**
+   ```bash
+    ng serve
+   ```
+   Navigate to `http://localhost:4200/`
+
+5. *Running unit tests**
+   ```bash
+     ng test
+   ```
+
+### Additional Information
+**Testing Mock Authentication**: To test the mock authentication in the app, adjust the `isAuthenticated` variable in the `authGuard` from `true` to `false` in the `auth.guard.ts` file. Perform a search and you will be redirected to the home page when you attempt viewing protected pages. An alert will also be displayed to inform you that you are not authenticated.
+
+https://github.com/user-attachments/assets/8f3d7cf7-f127-4d96-899a-fa39a9ff4377
+
+### TODO List
+- Add pagination to the search results page.

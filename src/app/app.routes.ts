@@ -3,6 +3,7 @@ import { SearchComponent } from './components/search/search.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { CompanyDetailsComponent } from './components/company-details/company-details.component';
 import { OfficersListComponent } from './components/officers-list/officers-list.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { 
@@ -18,11 +19,13 @@ export const routes: Routes = [
   {
     path: 'company/:companyNumber',
     component: CompanyDetailsComponent,
-    title: 'Company Details'
+    title: 'Company Details',
+    canActivate: [authGuard]
   },
   { 
     path: 'company/:companyNumber/officers',
     component: OfficersListComponent,
-    title: 'Company Officers'
+    title: 'Company Officers',
+    canActivate: [authGuard]
   }
 ];
