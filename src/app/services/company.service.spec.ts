@@ -69,7 +69,7 @@ describe('CompanyService', () => {
         expect(result).toEqual(dummyResponse);
       });
 
-      const req = httpMock.expectOne(`${service['apiUrl']}/Search?Query=${dummyQuery}`);
+      const req = httpMock.expectOne(`/api/Search?Query=${dummyQuery}`);
       expect(req.request.method).toBe('GET');
       req.flush(dummyResponse);
     });
@@ -119,7 +119,7 @@ describe('CompanyService', () => {
         expect(officers).toEqual(dummyOfficerResponse);
       });
 
-      const req = httpMock.expectOne(`${service['apiUrl']}/Officers?CompanyNumber=${dummyCompanyNumber}`);
+      const req = httpMock.expectOne(`/api/Officers?CompanyNumber=${dummyCompanyNumber}`);
       expect(req.request.method).toBe('GET');
       req.flush(dummyOfficerResponse);
     });

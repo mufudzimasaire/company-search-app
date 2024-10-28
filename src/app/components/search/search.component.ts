@@ -12,6 +12,11 @@ import { Router } from '@angular/router';
 export class SearchComponent {
   @Input() query = signal('');
 
+  /**
+   * @constructor
+   * @param router The router service
+   * @returns void
+   */
   constructor(private readonly router: Router) {}
 
   /**

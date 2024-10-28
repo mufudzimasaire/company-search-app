@@ -1,0 +1,31 @@
+<div class="container my-5">
+  <h1 class="mb-1 fw-light fs-3">{{ company?.title }}</h1>
+  <p>Company number <strong>{{ company?.company_number }}</strong></p>
+
+  <div class="mt-4">
+    <p class="mb-1">Registered office address</p>
+    <p><strong>{{ company?.address_snippet }}</strong></p>
+  </div>
+
+  <div class="mt-4">
+    <p class="mb-1">Company status</p>
+    <p><strong>{{ company?.company_status }}</strong></p>
+  </div>
+
+  <div class="mt-4">
+    <p class="mb-1">Company type</p>
+    <p><strong>{{ company?.company_type }}</strong></p>
+  </div>
+
+  <div class="mt-4">
+    <p class="mb-1">Incorporated on</p>
+    <p><strong>{{ company?.date_of_creation | date }}</strong></p>
+  </div>
+
+  <a (click)="goToOfficers()" class="mt-4">List Officers</a>
+
+  <div *ngIf="!company" class="text-center mt-3">
+    <p>No company found.</p>
+  </div>
+</div>
+

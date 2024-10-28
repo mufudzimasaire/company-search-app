@@ -1,14 +1,31 @@
 <div class="container my-5">
   <h1 class="text-center fw-light mb-4 fs-3">Search Results</h1>
-  <div class="list-group">
-    <div *ngFor="let company of companies; index as i" class="list-group-item list-group-item-action py-3 border-0 border-bottom">
-      <h5 class="mb-1">
-        <a [routerLink]="['/company', company.company_number]" class="text-decoration-none text-primary fw-bold">
-          {{ company.title }}
-        </a>
-      </h5>
-      <p class="mb-1"><b>{{ company.company_number }}</b> - Incorporated on {{ company.date_of_creation | date }}</p>
-      <small class="text-muted">{{ company.address_snippet }}</small>
+
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border" output="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="text-center text-danger">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error">
+    <div class="list-group">
+      <div *ngFor="let company of companies; index as i" class="list-group-item list-group-item-action py-3 border-0 border-bottom">
+        <h5 class="mb-1">
+          <a (click)="goToCompanyDetails(company)" class="text-decoration-none text-primary fw-bold">
+            {{ company.title }}
+          </a>
+        </h5>
+        <p class="mb-1"><b>{{ company.company_number }}</b> - Incorporated on {{ company.date_of_creation | date }}</p>
+        <small class="text-muted">{{ company.address_snippet }}</small>
+      </div>
+    </div>
+
+    <div *ngIf="!companies.length" class="text-center mt-3">
+      <p>No companies found.</p>
     </div>
   </div>
 </div>
